@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import ttk
 
 
 class Main:
@@ -7,20 +8,26 @@ class Main:
         self.window_config()
         self.frames()
 
+        # Static Icons
         self.icons()
 
+        # Bar menu static
         self.widgets_bar_menu()
-        self.widgets_body()
+
+        # Home Page
+        self.widgets_home()
 
         self.window.mainloop()
 
     def window_config(self):
+        # Standard Settings from window
         self.window.title("Gerenciador de mensalidade")
         self.window.geometry("700x600+350+50")
         self.window.resizable(0, 0)
         self.window.config(bg="#3b3b3b")
 
     def frames(self):
+        # Standard Frames from application
         self.bar_menu = Frame(self.window, bg="#d3d3d3")
         self.bar_menu.place(relx=0, rely=0, relwidth=0.12, relheight=1)
 
@@ -29,6 +36,7 @@ class Main:
         self.body.place(relx=0.12, rely=0, relwidth=0.88, relheight=1)
 
     def icons(self):
+        # Constructing icons
         self.icon_home = PhotoImage(file="assets/home.png")
         self.icon_client = PhotoImage(file="assets/cliente_b.png")
         self.icon_new = PhotoImage(file="assets/adicionar.png")
@@ -40,10 +48,10 @@ class Main:
         self.icon_search = PhotoImage(file="assets/lupa.png")
 
     def widgets_bar_menu(self):
+        # Standard widgets from bar menu
         self.home_button = Button(self.bar_menu, image=self.icon_home,
                                   bg="#d3d3d3", bd=0, command=None)
         self.home_button.place(relx=0, rely=0.03, relwidth=1)
-        self.home_button.configure(background="#a9a9a9")
 
         self.clients_button = Button(self.bar_menu, image=self.icon_client,
                                      bg="#d3d3d3", bd=0, command=None)
@@ -57,7 +65,10 @@ class Main:
                                    bg="#d3d3d3", bd=0, command=None)
         self.close_button.place(relx=0, rely=0.85, relwidth=1)
 
-    def widgets_body(self):
+    def widgets_home(self):
+        # Constructing home page
+        self.home_button.configure(background="#a9a9a9")
+
         self.header = Label(self.body, text="Seja bem-vindo",
                             bg="#3b3b3b", fg="#d3d3d3",
                             font="Arial 60", justify="left")
